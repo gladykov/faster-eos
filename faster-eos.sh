@@ -35,7 +35,6 @@ fi
 
 # Compiler adjustments
 sudo sed -E -i 's/-march=(\S*)/-march=native/' /etc/makepkg.conf
-sudo sed -E -i 's/-mtune==(\S*)/-mtune=native/' /etc/makepkg.conf
 sudo sed -E -i 's/-O2/-O3/' /etc/makepkg.conf
 sudo sed -E -i 's/#RUSTFLAGS=(.*)$/RUSTFLAGS="-C opt-level=2 -C target-cpu=native"/' /etc/makepkg.conf
 sudo sed -E -i 's/#MAKEFLAGS=(.*)$/MAKEFLAGS="-j$(nproc)"/' /etc/makepkg.conf
