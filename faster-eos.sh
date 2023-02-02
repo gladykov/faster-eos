@@ -1,6 +1,6 @@
 # This may and will brake you system. Use at your own risk.
 # Made for Endeavour OS Cassini 22.10
-# ASSUMPTIONS: You use GRUB2
+# ASSUMPTIONS: You use GRUB2, but will work for non grub systems also
 #
 # LOGIC: User should not think when applying this script.
 # Ex. Linux-lqx Kernel is nice, if you configure tlp,
@@ -41,8 +41,6 @@ sudo sed -E -i 's/#RUSTFLAGS=(.*)$/RUSTFLAGS="-C opt-level=2 -C target-cpu=nativ
 sudo sed -E -i 's/#MAKEFLAGS=(.*)$/MAKEFLAGS="-j$(nproc)"/' /etc/makepkg.conf
 sudo sed -i 's/COMPRESSZST=(zstd/COMPRESSZST=(zstd -1/' /etc/makepkg.conf
 
-
-
 # Upgrade everything
 yay
 
@@ -67,4 +65,4 @@ sudo sed -E -i 's/(ext4\s+defaults)/\1,commit=60/' /etc/fstab
 # Apply changes to grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-echo "Finished. Now reboot and pray."
+echo "Finished. Please reboot."
