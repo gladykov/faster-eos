@@ -34,6 +34,8 @@ if /lib/ld-linux-x86-64.so.2 --help | grep -q 'x86-64-v3 (supported, searched)';
 fi
 
 # Compiler adjustments
+# https://sunnyflunk.github.io/2023/01/29/GCCs-O3-Can-Transform-Performance.html
+# https://old.reddit.com/r/archlinux/comments/oflged/alhp_archlinux_recompiled_for_x8664v3_experimental/
 sudo sed -E -i 's/-march=(\S*)/-march=native/' /etc/makepkg.conf
 sudo sed -E -i 's/-mtune=(\S*)//' /etc/makepkg.conf
 sudo sed -E -i 's/-O2/-O3/' /etc/makepkg.conf
@@ -57,6 +59,7 @@ yay -S ananicy-cpp ananicy-rules
 sudo systemctl enable --now ananicy-cpp.service
 
 # Disable CPU bugs mitigations, enable cgroups 1 for ananicy
+# https://old.reddit.com/r/linux/comments/9z0x58/how_dangerous_it_might_actually_be_to_just/
 sudo sed -E -i "s/^GRUB_CMDLINE_LINUX_DEFAULT='(.*)'/GRUB_CMDLINE_LINUX_DEFAULT='\1 mitigations=off systemd.unified_cgroup_hierarchy=0'/" /etc/default/grub
 
 # Filesystem improvements (all and ext4):
