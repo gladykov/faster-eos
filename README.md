@@ -1,11 +1,12 @@
 # faster-eos
 Tweaked defaults for EndeavourOS for speed.
 
-Use optimized builds, build optimized builds, tweak some other "safe" properties.
-
-https://sunnyflunk.github.io/2023/01/29/GCCs-O3-Can-Transform-Performance.html
+* building packages build with optimisations for your processor - by default packages are build for all processors
+* downloading optimized packages for newer processors (if your processor supports it)
+* protection against processor bugs is turned off - as there is a small risk someone will execute harmful attack this way
+* dbus service replaced for one build for performance
+* ananicy installed so processes will not take too much processor power
+* some filesystem improvement to decrease writes
+* bonus: OS prober enabled by default - this is a common question coming from people switching from Win
 
 Assumptions: You use GRUB. But will work without GRUB. Also aimed at desktop user. Read script before applying.
-
-Warning: Enables O3 optimization for compiler, which may brake a package from time to time. If so, edit /etc/makepkg.conf
-, set 02 and rebuild package.
