@@ -10,3 +10,11 @@ Tweaked defaults for EndeavourOS for speed.
 * bonus: OS prober enabled by default - this is a common question coming from people switching from Win
 
 Assumptions: You use GRUB. But will work without GRUB. Also aimed at desktop user. Read script before applying.
+
+
+To run: Download faster-eos.sh , open terminal and run:
+
+```
+chmod +x faster-eos.sh
+./faster-eos.sh
+```
