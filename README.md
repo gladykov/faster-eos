@@ -6,6 +6,7 @@ Tweaked defaults for EndeavourOS for speed.
 * protection against processor bugs is turned off - as there is a small risk someone will execute harmful attack this way
 * dbus service replaced for one build for performance
 * ananicy installed so processes will not take too much processor power
+* use iwd WiFi daemon instead of wpa_suplicant
 * some filesystem improvement to decrease writes
 * bonus: OS prober enabled by default - this is a common question coming from people switching from Win
 
