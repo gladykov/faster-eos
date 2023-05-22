@@ -26,9 +26,6 @@ if /lib/ld-linux-x86-64.so.2 --help | grep -q 'x86-64-v3 (supported, searched)';
   [extra-x86-64-v3]\\
   Include = /etc/pacman.d/alhp-mirrorlist\\
   \\
-  [community-x86-64-v3]\\
-  Include = /etc/pacman.d/alhp-mirrorlist\\
-  \\
   " /etc/pacman.conf
 
 fi
