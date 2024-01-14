@@ -43,11 +43,6 @@ sudo sed -i 's/COMPRESSZST=(zstd/COMPRESSZST=(zstd -1/' /etc/makepkg.conf
 # Upgrade everything
 yay
 
-# https://wiki.archlinux.org/title/D-Bus
-yay -S dbus-broker
-sudo systemctl disable dbus.service
-sudo systemctl enable --now dbus-broker.service
-
 # Enable OS prober for GRUB
 sudo sed -i "/#GRUB_DISABLE_OS_PROBER=/c\GRUB_DISABLE_OS_PROBER=false" /etc/default/grub
 
