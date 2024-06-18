@@ -46,10 +46,6 @@ yay
 # Enable OS prober for GRUB
 sudo sed -i "/#GRUB_DISABLE_OS_PROBER=/c\GRUB_DISABLE_OS_PROBER=false" /etc/default/grub
 
-# Use ananicy, so programs behave nicer
-yay -S ananicy-cpp ananicy-rules
-sudo systemctl enable --now ananicy-cpp.service
-
 # Use better WiFi daemon
 # https://wiki.archlinux.org/title/iwd
 yay -S iwd
@@ -57,7 +53,7 @@ sudo printf "[device]\nwifi.backend=iwd\n" >> /etc/NetworkManager/conf.d/wifi_ba
 
 # Disable CPU bugs mitigations, enable cgroups 1 for ananicy
 # https://old.reddit.com/r/linux/comments/9z0x58/how_dangerous_it_might_actually_be_to_just/
-sudo sed -E -i "s/^GRUB_CMDLINE_LINUX_DEFAULT='(.*)'/GRUB_CMDLINE_LINUX_DEFAULT='\1 mitigations=off systemd.unified_cgroup_hierarchy=0'/" /etc/default/grub
+sudo sed -E -i "s/^GRUB_CMDLINE_LINUX_DEFAULT='(.*)'/GRUB_CMDLINE_LINUX_DEFAULT='\1 mitigations=off'/" /etc/default/grub
 
 # Filesystem improvements (all and ext4):
 sudo sed -E -i 's/(ext4\s+defaults)/\1,commit=60/' /etc/fstab
